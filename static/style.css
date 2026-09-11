@@ -1,0 +1,240 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+
+/* Navigation */
+
+nav {
+    background-color: #222;
+    color: white;
+    padding: 15px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Main container */
+
+.container {
+    width: 700px;
+    max-width: 90%;
+    margin: 40px auto;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+}
+
+
+/* Heading */
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+
+/* Add button */
+
+.add-btn {
+    display: inline-block;
+
+    background-color: green;
+    color: white;
+
+    padding: 10px 15px;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    margin: 20px 0;
+}
+
+
+/* Search */
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.search-form input,
+.search-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-form input {
+    flex: 1;
+}
+
+.search-form button {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+
+/* Tasks */
+
+.task {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+
+    margin: 10px 0;
+
+    background-color: #f1f1f1;
+
+    border-radius: 5px;
+}
+
+
+/* Actions */
+
+.actions a {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+
+/* Status */
+
+.pending {
+    color: orange;
+}
+
+.completed {
+    color: green;
+}
+
+
+/* Forms */
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-form input {
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+}
+
+.task-form button {
+    padding: 12px;
+
+    background-color: green;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+/* Messages */
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+
+    padding: 12px;
+
+    margin: 15px 0;
+
+    border-radius: 5px;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+
+    padding: 12px;
+
+    margin: 15px 0;
+
+    border-radius: 5px;
+}
+
+
+/* No tasks */
+
+.no-tasks {
+    text-align: center;
+    color: gray;
+}
+@media (max-width: 600px) {
+
+    nav {
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        margin: 0 8px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .task {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .actions a {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+}

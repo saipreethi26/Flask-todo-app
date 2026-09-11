@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Add Task</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        📝 To-Do App
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/add-task">Add Task</a>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>➕ Add New Task</h1>
+
+    <form method="POST" class="task-form">
+
+        <label>Task</label>
+
+        <input
+            type="text"
+            name="task"
+            placeholder="Enter your task"
+            required
+        >
+
+        <button type="submit">
+            Add Task
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/">← Back to Home</a>
+
+</div>
+
+</body>
+</html>

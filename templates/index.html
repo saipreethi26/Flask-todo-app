@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do App</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        📝 To-Do App
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/add-task">Add Task</a>
+    </div>
+</nav>
+
+
+<div class="container">
+
+    <h1>My To-Do List</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% if messages %}
+
+            {% for category, message in messages %}
+
+                <div class="{{ category }}">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    {% endwith %}
+
+
+    <a href="/add-task" class="add-btn">
+        ➕ Add Task
+    </a>
+
+
+    <!-- Search and Filter -->
+
+    <form method="GET" action="/" class="search-form">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search tasks..."
+            value="{{ search }}"
+        >
+
+        <select name="status">
+
+            <option value="">All Tasks</option>
+
+            <option value="Pending"
+                {% if status == "Pending" %}selected{% endif %}>
+                Pending
+            </option>
+
+            <option value="Completed"
+                {% if status == "Completed" %}selected{% endif %}>
+                Completed
+            </option>
+
+        </select>
+
+        <button type="submit">
+            🔍 Search
+        </button>
+
+    </form>
+
+
+    <h2>Tasks</h2>
+
+
+    {% if tasks %}
+
+        {% for task in tasks %}
+
+            <div class="task">
+
+                <div>
+
+                    <strong>{{ task.task }}</strong>
+
+                    <br>
+
+                    <span class="{{ task.status|lower }}">
+                        {{ task.status }}
+                    </span>
+
+                </div>
+
+
+                <div class="actions">
+
+                    <a href="/edit-task/{{ task.id }}">
+                        ✏️ Edit
+                    </a>
+
+                    {% if task.status == "Pending" %}
+
+                        <a href="/complete-task/{{ task.id }}">
+                            ✅ Complete
+                        </a>
+
+                    {% endif %}
+
+                    <a href="/delete-task/{{ task.id }}">
+                        🗑️ Delete
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p class="no-tasks">
+            No tasks found.
+        </p>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
